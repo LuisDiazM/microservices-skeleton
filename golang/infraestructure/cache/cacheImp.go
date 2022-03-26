@@ -6,10 +6,10 @@ import (
 	"os"
 	"time"
 
+	"github.com/LuisDiazM/firestore-reports/domain"
+	"github.com/LuisDiazM/firestore-reports/domain/helpers"
 	"github.com/go-redis/cache/v8"
 	"github.com/go-redis/redis/v8"
-	"hibot.us/chatbots-report/domain"
-	"hibot.us/chatbots-report/domain/helpers"
 )
 
 type RedisCacheImpl struct {

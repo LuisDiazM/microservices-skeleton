@@ -4,16 +4,6 @@ import (
 	"net/http"
 )
 
-const (
-	tenantHeader = "tenant"
-	userIdHeader = "userId"
-)
-
-type TokenData struct {
-	TenantId string
-	UserId   string
-}
-
 func enableCors(responseWriter *http.ResponseWriter) {
 	//Enable CORS
 	(*responseWriter).Header().Set("Access-Control-Allow-Credentials", "true")
@@ -25,10 +15,10 @@ func enableCors(responseWriter *http.ResponseWriter) {
 
 func (app Application) Setup() {
 	app.cacheGateway.Setup()
-
+	app.databaseGateway.Setup()
 	app.Router.Use(app.route)
 
-	reportsV1 := app.Router.PathPrefix("/reports/v1").Subrouter()
+	reportsV1 := app.Router.PathPrefix("/api/v1").Subrouter()
 	reportsV1.Path("/").HandlerFunc(app.Index).Methods(http.MethodGet, http.MethodOptions)
 
 }

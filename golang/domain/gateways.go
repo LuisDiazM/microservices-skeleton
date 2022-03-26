@@ -1,8 +1,14 @@
 package domain
 
-import "time"
+import (
+	"time"
+
+	"github.com/LuisDiazM/firestore-reports/domain/models"
+)
 
 type DatabaseGateway interface {
+	GetUsersResponses() (*[]models.UserResponsesDTO, error)
+	Setup()
 }
 
 type CacheGateway interface {

@@ -1,8 +1,8 @@
 package main
 
 import (
+	"github.com/LuisDiazM/firestore-reports/app"
 	"github.com/gorilla/mux"
-	"hibot.us/chatbots-report/app"
 )
 
 func main() {

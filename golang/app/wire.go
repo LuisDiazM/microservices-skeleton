@@ -1,3 +1,4 @@
+//go:build wireinject
 // +build wireinject
 
 package app
@@ -10,6 +11,8 @@ func CreateApp() *Application {
 	wire.Build(
 		AppProvider,
 		CacheProvider,
+		DatabaseProvider,
+		ReportUseCaseProvider,
 	)
 	return new(Application)
 }
